@@ -5,7 +5,7 @@ const cheerio = require('cheerio');
 const app = express();
 
 // Generate a random email address
-app.get('/api/gen', async (req, res) => {
+app.get('/api/email_gen', async (req, res) => {
   try {
     const response = await axios.get('https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=1');
     const email = response.data[0];
@@ -17,7 +17,7 @@ app.get('/api/gen', async (req, res) => {
 });
 
 // Get messages for a given email address
-app.get('/api/getmessage/:email', async (req, res) => {
+app.get('/api/email_getmessage/:email', async (req, res) => {
   try {
     const { email } = req.params;
 
